@@ -1,0 +1,64 @@
+erDiagram
+ BUILD_SYSTEM {
+   string build_system_id PK
+   string cargo_output
+   string cargo_rustc_static_libs
+   string cargo_test
+ }
+
+ CARGO_OUTPUT {
+   string cargo_output_id PK
+   string python_functions
+   string python_classes
+ }
+
+ CARGO_RUSTC_STATIC_LIBS {
+   string cargo_rustc_static_libs_id PK
+ }
+
+ CARGO_TEST {
+   string cargo_test_id PK
+ }
+
+ CHECK_QML_MODULE {
+   string check_qml_module_id PK
+   int python_functions
+   int python_classes
+ }
+
+ GEN_VLC_ABOUT {
+   string gen_vlc_about_id PK
+ }
+
+ COMMON_JS {
+   string common_js_id PK
+   int js_functions
+ }
+
+ CONTROLLERS_JS {
+   string controllers_js_id PK
+   int js_functions
+ }
+
+ JQUERY_JSTREE_JS {
+   string jquery_jstree_js_id PK
+   int js_functions
+ }
+
+ UI_JS {
+   string ui_js_id PK
+ }
+
+ LUA_HTTP_JS {
+   string lua_http_js_id PK
+ }
+
+ BUILD_SYSTEM ||--o{ CARGO_OUTPUT : generates
+ BUILD_SYSTEM ||--o{ CARGO_RUSTC_STATIC_LIBS : generates
+ BUILD_SYSTEM ||--o{ CARGO_TEST : generates
+ BUILD_SYSTEM ||--o{ CHECK_QML_MODULE : generates
+ BUILD_SYSTEM ||--o{ GEN_VLC_ABOUT : generates
+ LUA_HTTP_JS ||--o{ COMMON_JS : includes
+ LUA_HTTP_JS ||--o{ CONTROLLERS_JS : includes
+ LUA_HTTP_JS ||--o{ JQUERY_JSTREE_JS : includes
+ LUA_HTTP_JS ||--o{ UI_JS : includes

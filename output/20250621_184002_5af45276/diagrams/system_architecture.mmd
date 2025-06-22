@@ -1,0 +1,78 @@
+classDiagram
+class VLC_Buildsystem {
+  + cargo-output.py
+  + cargo-rustc-static-libs.py
+  + cargo-test.py
+  + check_qml_module.py
+  + gen-vlc-about.py
+}
+
+class VLC_Scripts {
+  + common.js
+  + controllers.js
+  + jquery.jstree.js
+  + ui.js
+}
+
+class VLC_External_Services {
+}
+
+class Technology_Stack {
+  + Python
+  + JavaScript
+  + Lua
+}
+
+class Security_Boundary {
+  + External
+  + Internal
+}
+
+VLC_Buildsystem --> Technology_Stack
+VLC_Scripts --> Technology_Stack
+Technology_Stack --> Security_Boundary
+VLC_External_Services --> Security_Boundary
+
+class cargo_output_py {
+  + 1 functions
+}
+
+class cargo_rustc_static_libs_py {
+}
+
+class cargo_test_py {
+}
+
+class check_qml_module_py {
+  + 9 functions
+  + 2 classes
+}
+
+class gen_vlc_about_py {
+}
+
+class common_js {
+  + 5 functions
+}
+
+class controllers_js {
+  + 11 functions
+}
+
+class jquery_jstree_js {
+  + 1 functions
+}
+
+class ui_js {
+}
+
+VLC_Buildsystem --> cargo_output_py
+VLC_Buildsystem --> cargo_rustc_static_libs_py
+VLC_Buildsystem --> cargo_test_py
+VLC_Buildsystem --> check_qml_module_py
+VLC_Buildsystem --> gen_vlc_about_py
+
+VLC_Scripts --> common_js
+VLC_Scripts --> controllers_js
+VLC_Scripts --> jquery_jstree_js
+VLC_Scripts --> ui_js

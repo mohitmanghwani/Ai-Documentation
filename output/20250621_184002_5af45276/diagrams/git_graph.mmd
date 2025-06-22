@@ -1,0 +1,22 @@
+gitGraph
+    commit id: "Initial commit" tag: "v1.0.0" label: "Initial VLC project commit"
+    branch feature/new-ui
+    checkout feature/new-ui
+    commit label: "Added new UI design"
+    branch feature/mediaserver
+    checkout feature/mediaserver
+    commit label: "Implemented media server functionality"
+    checkout main
+    merge feature/new-ui
+    commit label: "Fixed bugs in main branch"
+    checkout feature/mediaserver
+    commit label: "Enhanced media server performance"
+    checkout main
+    merge feature/mediaserver
+    commit label: "Released VLC 1.1.0" tag: "v1.1.0"
+    branch feature/dlna-support
+    checkout feature/dlna-support
+    commit label: "Added DLNA support"
+    checkout main
+    merge feature/dlna-support
+    commit label: "Released VLC 1.2.0" tag: "v1.2.0"

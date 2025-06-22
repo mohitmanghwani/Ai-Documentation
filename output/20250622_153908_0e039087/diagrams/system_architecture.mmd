@@ -1,0 +1,77 @@
+classDiagram
+class BuildSystem {
+ +cargo-output.py: 1 functions, 0 classes
+ +cargo-rustc-static-libs.py: 0 functions, 0 classes
+ +cargo-test.py: 0 functions, 0 classes
+ +check_qml_module.py: 9 functions, 2 classes
+ +gen-vlc-about.py: 0 functions, 0 classes
+}
+
+class LuaHttp {
+ +common.js: 5 functions, 0 classes
+ +controllers.js: 11 functions, 0 classes
+ +jquery.jstree.js: 1 functions, 0 classes
+ +ui.js: 0 functions, 0 classes
+}
+
+class Vlc {
+ +main
+}
+
+class SecurityBoundary {
+}
+
+class ExternalServices {
+}
+
+BuildSystem ..> LuaHttp : uses
+LuaHttp ..> Vlc : interacts_with
+Vlc ..> SecurityBoundary : within
+SecurityBoundary ..> ExternalServices : interacts_with
+
+class CargoOutputPy {
+ +1 functions
+}
+
+class CargoRustcStaticLibsPy {
+ +0 functions
+}
+
+class CargoTestPy {
+ +0 functions
+}
+
+class CheckQmlModulePy {
+ +9 functions
+ +2 classes
+}
+
+class GenVlcAboutPy {
+ +0 functions
+}
+
+class CommonJs {
+ +5 functions
+}
+
+class ControllersJs {
+ +11 functions
+}
+
+class JqueryJstreeJs {
+ +1 functions
+}
+
+class UiJs {
+ +0 functions
+}
+
+BuildSystem "1" *-- "1" CargoOutputPy : contains
+BuildSystem "1" *-- "1" CargoRustcStaticLibsPy : contains
+BuildSystem "1" *-- "1" CargoTestPy : contains
+BuildSystem "1" *-- "1" CheckQmlModulePy : contains
+BuildSystem "1" *-- "1" GenVlcAboutPy : contains
+LuaHttp "1" *-- "1" CommonJs : contains
+LuaHttp "1" *-- "1" ControllersJs : contains
+LuaHttp "1" *-- "1" JqueryJstreeJs : contains
+LuaHttp "1" *-- "1" UiJs : contains

@@ -1,0 +1,38 @@
+sequenceDiagram
+    participant PythonScript as "Python Scripts"
+    participant JavaScript as "JavaScript Files"
+    participant DataStorage as "Data Storage"
+    participant BuildSystem as "Build System"
+    participant VLC as "VLC Project"
+
+    Note over PythonScript,JavaScript: Code Analysis
+    PythonScript->>BuildSystem: cargo-output.py
+    PythonScript->>BuildSystem: cargo-rustc-static-libs.py
+    PythonScript->>BuildSystem: cargo-test.py
+    PythonScript->>BuildSystem: check_qml_module.py
+    PythonScript->>BuildSystem: gen-vlc-about.py
+
+    JavaScript->>JavaScript: common.js
+    JavaScript->>JavaScript: controllers.js
+    JavaScript->>JavaScript: jquery.jstree.js
+    JavaScript->>JavaScript: ui.js
+
+    BuildSystem->>DataStorage: Store Build Output
+    DataStorage-->>BuildSystem: Retrieve Build Output
+
+    BuildSystem->>VLC: Process Build Output
+    VLC->>DataStorage: Store Final Output
+    DataStorage-->>VLC: Retrieve Final Output
+
+    Note over PythonScript,JavaScript: Data Validation and Error Handling
+    PythonScript->>PythonScript: Validate Data
+    JavaScript->>JavaScript: Validate Data
+
+    Note over DataStorage: Data Storage Locations
+    DataStorage->>DataStorage: Store Data
+
+    Note over PythonScript,JavaScript,BuildSystem,VLC: Data Movement
+    PythonScript->>BuildSystem: Move Data
+    BuildSystem->>VLC: Move Data
+    VLC->>DataStorage: Move Data
+    DataStorage->>VLC: Move Data

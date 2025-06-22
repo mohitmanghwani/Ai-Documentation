@@ -1,0 +1,16 @@
+gitgraph
+    commit id:"Initial Commit" msg:"Initial commit for VLC project" 
+    branch feature/new-ui msg:"Create feature branch for new UI" 
+    checkout feature/new-ui 
+    commit id:"new-ui-1" msg:"Implement new UI layout" 
+    commit id:"new-ui-2" msg:"Fix UI bugs and improve performance" 
+    checkout main 
+    commit id:"main-1" msg:"Initial main branch commit" 
+    merge feature/new-ui msg:"Merge new UI feature into main" 
+    branch feature/dlna-support msg:"Create feature branch for DLNA support" 
+    checkout feature/dlna-support 
+    commit id:"dlna-1" msg:"Implement DLNA support" 
+    commit id:"dlna-2" msg:"Fix DLNA bugs and improve functionality" 
+    checkout main 
+    merge feature/dlna-support msg:"Merge DLNA feature into main" 
+    commit id:"post-merge-1" msg:"Resolve merge conflicts and test"

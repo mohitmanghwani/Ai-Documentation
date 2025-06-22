@@ -1,0 +1,71 @@
+classDiagram
+class setup {
+  + 
+}
+
+class comm {
+  + function1()
+  + function2()
+  + function3()
+  + function4()
+  + function5()
+}
+
+class dualpipe {
+  + function1()
+  + function2()
+  + function3()
+  + function4()
+  + function5()
+  + function6()
+  + function7()
+  + function8()
+  + function9()
+  + function10()
+  + function11()
+  + function12()
+  + function13()
+  + function14()
+  + function15()
+  + function16()
+  - Class: DualPipe
+}
+
+class dualpipev {
+  + function1()
+  + function2()
+  + function3()
+  + function4()
+  + function5()
+  + function6()
+  + function7()
+  + function8()
+  + function9()
+  + function10()
+  + function11()
+  + function12()
+  + function13()
+  + function14()
+  + function15()
+  + function16()
+  - Class: DualPipeV
+}
+
+class utils {
+  + function1()
+  + function2()
+  + function3()
+  + function4()
+  + function5()
+  + function6()
+  + function7()
+  + function8()
+  + function9()
+  - Class: Utils
+}
+
+comm <..> dualpipe : import
+comm <..> dualpipev : import
+comm <..> utils : import
+dualpipe <..> utils : import
+dualpipev <..> utils : import

@@ -1,0 +1,16 @@
+gitGraph
+    commit id: "a"
+    branch feature-vlc-1
+    checkout feature-vlc-1
+    commit id: "b"
+    commit id: "c"
+    checkout main
+    merge feature-vlc-1
+    commit id: "d"
+    branch feature-vlc-2
+    checkout feature-vlc-2
+    commit id: "e"
+    commit id: "f"
+    checkout main
+    merge feature-vlc-2
+    tag "v1.0"

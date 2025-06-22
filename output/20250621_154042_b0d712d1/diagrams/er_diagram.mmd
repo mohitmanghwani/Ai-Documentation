@@ -1,0 +1,58 @@
+erDiagram
+CLASS {
+  string name PK
+  string attributes
+}
+
+FUNCTION {
+  string name PK
+  string attributes
+}
+
+FILE {
+  string name PK
+  string path
+  int lines_of_code
+}
+
+PROJECT {
+  string name PK
+  string type
+}
+
+DEPENDENCY {
+  string name PK
+  string version
+}
+
+CLASS ||--o{ FUNCTION : "contains"
+FILE ||--o{ FUNCTION : "contains"
+PROJECT ||--o{ FILE : "contains"
+PROJECT ||--o{ CLASS : "contains"
+PROJECT ||--o{ DEPENDENCY : "depends_on"
+
+DUALPIPE {
+  string name
+}
+
+COMM {
+  string name
+}
+
+DUALPIPEV {
+  string name
+}
+
+UTILS {
+  string name
+}
+
+DUALPIPE ||--o{ COMM : "uses"
+DUALPIPE ||--o{ DUALPIPEV : "uses"
+DUALPIPE ||--o{ UTILS : "uses"
+
+SETUP {
+  string name
+}
+
+SETUP ||--o{ PROJECT : "setup_for"

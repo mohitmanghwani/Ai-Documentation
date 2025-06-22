@@ -1,0 +1,31 @@
+classDiagram
+class VLC_Buildsystem {
+ + cargo-output.py
+ + cargo-rustc-static-libs.py
+ + cargo-test.py
+ + check_qml_module.py
+ + gen-vlc-about.py
+ }
+ class VLC_Lua_HTTP {
+ + common.js
+ + controllers.js
+ + jquery.jstree.js
+ + ui.js
+ }
+ class External_Services {
+ + No dependencies found
+ }
+ VLC_Buildsystem --> VLC_Lua_HTTP
+ VLC_Lua_HTTP --> External_Services
+ class Python_Technology_Stack {
+ + Python Files: 21
+ }
+ class JavaScript_Technology_Stack {
+ + JavaScript Files: 4
+ }
+ VLC_Buildsystem --> Python_Technology_Stack
+ VLC_Lua_HTTP --> JavaScript_Technology_Stack
+ class Security_Boundary {
+ + External Services
+ }
+ External_Services --> Security_Boundary

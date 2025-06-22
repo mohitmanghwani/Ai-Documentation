@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant Data_Source as "Data Source"
+    participant Data_Processor as "Dualpipe Processing"
+    participant Data_Storage as "Data Storage"
+    participant Data_Destination as "Data Destination"
+
+    Data_Source->>+Data_Processor: Send Data
+    Data_Processor->>+Data_Processor: Validate Data
+    Data_Processor->>+Data_Processor: Transform Data
+    Data_Processor->>+Data_Storage: Store Data
+    Data_Storage->>+Data_Processor: Retrieve Data
+    Data_Processor->>+Data_Destination: Send Processed Data
+    Data_Destination-->>-Data_Processor: Acknowledge Receipt
+    Data_Processor-->>-Data_Source: Acknowledge Processing
+    Data_Source->>+Data_Processor: Request Status
+    Data_Processor-->>-Data_Source: Send Status

@@ -1,0 +1,59 @@
+classDiagram
+class CargoOutput {
+  + functions: 1
+  + classes: 0
+}
+class CargoRustcStaticLibs {
+  + functions: 0
+  + classes: 0
+}
+class CargoTest {
+  + functions: 0
+  + classes: 0
+}
+class CheckQmlModule {
+  + functions: 9
+  + classes: 2
+}
+class GenVlcAbout {
+  + functions: 0
+  + classes: 0
+}
+class CommonJs {
+  + functions: 5
+  + classes: 0
+}
+class ControllersJs {
+  + functions: 11
+  + classes: 0
+}
+class JqueryJstreeJs {
+  + functions: 1
+  + classes: 0
+}
+class UiJs {
+  + functions: 0
+  + classes: 0
+}
+
+CargoOutput --> CheckQmlModule
+CheckQmlModule --> GenVlcAbout
+CommonJs --> ControllersJs
+ControllersJs --> JqueryJstreeJs
+JqueryJstreeJs --> UiJs
+
+class BuildSystem {
+  + cargo-output.py
+  + cargo-rustc-static-libs.py
+  + cargo-test.py
+  + check_qml_module.py
+  + gen-vlc-about.py
+}
+class LuaHttpJs {
+  + common.js
+  + controllers.js
+  + jquery.jstree.js
+  + ui.js
+}
+
+BuildSystem --> LuaHttpJs

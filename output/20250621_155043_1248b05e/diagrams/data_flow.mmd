@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant PythonScript as "Python Scripts"
+    participant JavaScript as "JavaScript Files"
+    participant DataStorage as "Data Storage"
+    participant CargoOutput as "cargo-output.py"
+    participant CheckQMLModule as "check_qml_module.py"
+    participant CommonJS as "common.js"
+    participant ControllersJS as "controllers.js"
+
+    note over PythonScript,JavaScript: Data Flow
+    CargoOutput->>DataStorage: Generate Output Data
+    CheckQMLModule->>DataStorage: Store QML Module Data
+    PythonScript->>DataStorage: Write Data
+    DataStorage->>CommonJS: Read Data
+    CommonJS->>ControllersJS: Send Data for Processing
+    ControllersJS->>DataStorage: Store Processed Data
+    DataStorage->>JavaScript: Retrieve Data
+    JavaScript->>PythonScript: Send Data for Further Processing
+    PythonScript->>DataStorage: Validate and Store Final Data
+    note over DataStorage: Data Validation and Error Handling
+    note over DataStorage: Data Storage Location
+    CargoOutput->>CheckQMLModule: Trigger QML Module Check
+    CheckQMLModule->>CargoOutput: Return QML Module Status
