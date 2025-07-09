@@ -1,4 +1,4 @@
-# AI Documentation & Diagram Generator (Version 3)
+# AI Documentation & Diagram Generator
 
 ## Overview
 
